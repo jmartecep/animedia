@@ -1,1 +1,3 @@
-export * from './Show';
+import Show from './Show';
+
+export default Show;
