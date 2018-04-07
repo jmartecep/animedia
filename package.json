@@ -27,6 +27,7 @@
     "@adonisjs/session": "^1.0.23",
     "@adonisjs/shield": "^1.0.6",
     "dotenv-expand": "^4.2.0",
+    "mysql": "^2.15.0",
     "react": "^16.3.1",
     "react-dom": "^16.3.1"
   },
