@@ -91,9 +91,6 @@ class ReactParser {
           returnStatement = returnStatement
                             .replace(/(\n\r*?)/gm, '')
                             
-          console.log('-----')
-          console.log(returnStatement)
-    
           fs.writeFile(reactPath, jsx, (err) => {
             if (err) throw err
           })
