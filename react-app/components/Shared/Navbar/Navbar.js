@@ -4,7 +4,10 @@ import { Link } from 'react-router-dom';
 class Navbar extends Component {
   render () {
     return (
-      <Link to="/shows">Shows</Link>
+      <div>
+        <Link to="/">Home</Link> 
+        <Link to="/shows">Shows</Link>
+      </div>
     );
   }
 }
