@@ -1,12 +1,28 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import 'materialize-css/dist/css/materialize.min.css'; 
+import './styles.css';
+
+
+
 
 class Navbar extends Component {
   render () {
     return (
       <div>
-        <Link to="/">Home</Link> 
-        <Link to="/shows">Shows</Link>
+        <nav>
+          <div className = "nav-wrapper">
+            <a href="" className="brand-logo center">Animedia</a>
+            <ul id="nav-mobile" className="left hide-on-med-and-down">
+              <li><a href ="">About</a></li>
+              <li><a href ="">About</a></li>
+            </ul>
+            <ul id="nav-mobile" className="right hide-on-med-and-down">
+              <li><a href ="">About</a></li>
+              <li><a href ="">About</a></li>
+            </ul>
+          </div>
+        </nav>
       </div>
     );
   }

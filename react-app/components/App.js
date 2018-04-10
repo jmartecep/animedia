@@ -4,15 +4,16 @@ import 'materialize-css/dist/css/materialize.min.css'
 import Navbar from './Shared/Navbar';
 import Home from './Pages/Home';
 import Show from './Pages/Show';
+import Footer from './Shared/Footer'
 
 class App extends Component {
   render() {
     return (
       <Router>
         <div>
-          <Navbar />
+          <Route exact path="/" component={Navbar} />
           <Route exact path="/" component={Home} />
-          <Route exact path="/shows" component={Show} />
+          <Route exact path="/" component={Footer} />
         </div>
       </Router>
     );

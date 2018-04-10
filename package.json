@@ -29,7 +29,6 @@
     "concurrently": "^3.5.1",
     "dotenv-expand": "^4.2.0",
     "materialize-css": "^1.0.0-beta",
-    "mysql": "^2.15.0",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-router": "^4.2.0",

@@ -1,0 +1,8 @@
+nav{
+    background-color:black;
+}
+.brand-logo {
+    font-family: 'Cookie', cursive;
+    src: url('https://fonts.googleapis.com/css?family=Cookie');
+    font-size: 70px !important;
+}
