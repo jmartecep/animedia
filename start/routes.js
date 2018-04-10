@@ -1,4 +1,4 @@
-'use strict'
+"use strict";
 
 /*
 |--------------------------------------------------------------------------
@@ -13,9 +13,7 @@
 |
 */
 
-const Route = use('Route')
+const Route = use("Route");
 
 // Route.on('/').render('welcome')
-Route.any("*", ({ view, response }) => (
-  view.render('welcome')
-))
+Route.any("*", ({ view, response }) => view.render("welcome"));
