@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import 'materialize-css/dist/css/materialize.min.css'; 
+import 'materialize-css/dist/css/materialize.min.css';
+import './footer.css'; 
 
 
 
 class Footer extends Component {
   render () {
     return (
-      <div>
+      <div className="page-footer myFoot">
         <div className="row">
         <div className="col s4"></div>
         <div className="col s2"> 
@@ -40,10 +41,10 @@ class Footer extends Component {
         </div>
         <div className="col s4"></div>
         </div>
-        <div class="footer-copyright">
-            <div class="container">
+        <div className="footer-copyright">
+            <div className="container">
             © 2018 Animedia!
-            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+            <a className="grey-text text-lighten-4 right" href="#!">More Links</a>
             </div>
           </div>
       </div>

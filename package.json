@@ -26,11 +26,8 @@
     "@adonisjs/lucid": "^5.0.3",
     "@adonisjs/session": "^1.0.23",
     "@adonisjs/shield": "^1.0.6",
-<<<<<<< HEAD
     "concurrently": "^3.5.1",
-=======
     "axios": "^0.18.0",
->>>>>>> bf614fc6cb4e1a987c99b11d460b569d6994df28
     "dotenv-expand": "^4.2.0",
     "materialize-css": "^1.0.0-beta",
     "react": "^16.3.1",
