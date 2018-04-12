@@ -1,18 +1,46 @@
 import React, { Component } from "react";
-import data from "./data.json";
+import info from "./data.json";
+import MetaBlockSection from "./MetaBlockSection";
 
 class MetaBlock extends Component {
+  constructor(props) {
+    super(props);
+  }
+
+  splitUppercase(letters) {
+    return letters.split(/(?=[A-Z])/);
+  }
+
+  formatObjectKey(key) {
+    let str = this.splitUppercase(key);
+    let meta = "";
+    str.forEach(chunk => {
+      meta += chunk.charAt(0).toUpperCase() + chunk.substr(1) + " ";
+    });
+
+    return meta;
+  }
+
   render() {
+    let data = info[0].attributes;
+
+    let show = {
+      title: data.titles.en,
+      averageRating: data.averageRating,
+      startDate: data.startDate,
+      endData: data.endDate,
+      ageRating: data.ageRatingGuide,
+      airedOn: data.subtype
+    };
     return (
       <div>
-        <ul>
-          {data.map(show => (
-            <div key={show.id}>
-              <li>{show.attributes.titles.en}</li>
-              <li>{show.attributes.averageRating}</li>
-            </div>
+        <MetaBlockSection>
+          {Object.keys(show).map((showProperty, value) => (
+            <li className="collection-item" key={value}>
+              {this.formatObjectKey(showProperty)}: {show[showProperty]}
+            </li>
           ))}
-        </ul>
+        </MetaBlockSection>
       </div>
     );
   }
