@@ -18,7 +18,7 @@ class MetaBlock extends Component {
       meta += chunk.charAt(0).toUpperCase() + chunk.substr(1) + " ";
     });
 
-    return meta;
+    return meta.trimRight();
   }
 
   render() {
@@ -32,12 +32,27 @@ class MetaBlock extends Component {
       ageRating: data.ageRatingGuide,
       airedOn: data.subtype
     };
+
+    let episode = {
+      status: data.status,
+      episodeCount: data.episodeCount,
+      episodeLength: data.episodeLength,
+      suitableForWork: data.nsfw ? "Yes" : "No"
+    };
     return (
       <div>
-        <MetaBlockSection>
+        <MetaBlockSection title="Show Data">
           {Object.keys(show).map((showProperty, value) => (
             <li className="collection-item" key={value}>
               {this.formatObjectKey(showProperty)}: {show[showProperty]}
+            </li>
+          ))}
+        </MetaBlockSection>
+        <MetaBlockSection title="Episode Data">
+          {Object.keys(episode).map((episodeProperty, value) => (
+            <li className="collection-item" key={value}>
+              {this.formatObjectKey(episodeProperty)}:{" "}
+              {episode[episodeProperty]}
             </li>
           ))}
         </MetaBlockSection>

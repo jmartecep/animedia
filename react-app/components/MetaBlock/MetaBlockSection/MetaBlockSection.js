@@ -6,7 +6,13 @@ class MetaBlockSection extends Component {
   }
 
   render() {
-    return <ul className="collection">{this.props.children}</ul>;
+    let props = this.props;
+    return (
+      <div>
+        <h5>{props.title}</h5>
+        <ul className="collection">{this.props.children}</ul>
+      </div>
+    );
   }
 }
 
