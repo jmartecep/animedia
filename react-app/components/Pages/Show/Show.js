@@ -1,9 +1,13 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import MetaBlock from "../../MetaBlock";
 
 class Show extends Component {
   render() {
     return (
-      <p>Show page</p>
+      <div>
+        <p>Show page</p>
+        <MetaBlock />
+      </div>
     );
   }
 }
