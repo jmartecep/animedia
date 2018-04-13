@@ -29,18 +29,6 @@ class GenreController {
     const Show = use("App/Models/Show");
     const Genre = use("App/Models/Genre");
 
-    async function getGenres(link) {
-      axios
-        .get(link)
-        .then(async reponse => {
-          let genreData = await response.data.data;
-          return genreData;
-        })
-        .catch(err => {
-          console.log(err);
-        });
-    }
-
     axios
       .get(
         "https://private-anon-1afde16162-kitsu.apiary-proxy.com/api/edge/anime?page[limit]=20&page[offset]=0"
@@ -58,19 +46,31 @@ class GenreController {
           singleShow.ageRating = singleAttr.ageRatingGuide;
           singleShow.airedOn = singleAttr.subtype;
 
-          let genres = show.attributes.relationships.genres.links.related;
-          genres = await getGenres(genres);
+          let genres = show.relationships.genres.links.related;
+          try {
+            genres = await this.getGenres(genres)
+              .then(async genreReponse => {
+                let genreData = await genreReponse.data.data;
+                genres = genreData;
+                return genres;
+              })
+              .catch(err => {
+                console.log(err);
+              });
+          } catch (err) {
+            console.log(err);
+          }
 
           let keys = [];
           genres.forEach(async genre => {
             keys.push(genre.id);
           });
 
-          show.genres = keys.join();
+          singleShow.genres = keys.join();
 
           console.log(show);
 
-          await show.save();
+          await singleShow.save();
         });
 
         return Genre.all().toJSON();
@@ -78,6 +78,10 @@ class GenreController {
       .catch(err => {
         console.log(err);
       });
+  }
+
+  async getGenres(link) {
+    return axios.get(link);
   }
 }
 
