@@ -1,6 +1,7 @@
 "use strict";
 const axios = require("axios");
 const Genre = use("App/Models/Genre");
+const Episode = use("App/Models/Episode");
 
 class GenreController {
   // async index() {
@@ -47,8 +48,9 @@ class GenreController {
           singleShow.airedOn = singleAttr.subtype;
 
           let genres = show.relationships.genres.links.related;
+          let episodes = show.relationships.episodes.links.related;
           try {
-            genres = await this.getGenres(genres)
+            genres = await this.getResource(genres)
               .then(async genreReponse => {
                 let genreData = await genreReponse.data.data;
                 genres = genreData;
@@ -61,6 +63,32 @@ class GenreController {
             console.log(err);
           }
 
+          try {
+            episodes = await this.getResource(episodes)
+              .then(async episodeReponse => {
+                let episodeData = await episodeReponse.data.data;
+
+                episodeData.forEach(async epi => {
+                  epi = epi.attributes;
+                  let episode = new Episode();
+                  episode.title = epi.canonicalTitle;
+                  episode.seasonNumber = epi.seasonNumber;
+                  episode.number = epi.number;
+                  episode.synopsis = epi.synopsis;
+                  episode.length = epi.length;
+                  episode.airDate = epi.airdate;
+                  if (epi.thumbnail.original) {
+                    episode.thumbnail = epi.thumbnail.original;
+                  }
+                  episode.showId = show.id;
+                  await episode.save();
+                });
+              })
+              .catch(err => {
+                console.log(err);
+              });
+          } catch (err) {}
+
           let keys = [];
           genres.forEach(async genre => {
             keys.push(genre.id);
@@ -68,19 +96,15 @@ class GenreController {
 
           singleShow.genres = keys.join();
 
-          console.log(show);
-
           await singleShow.save();
         });
-
-        return Genre.all().toJSON();
       })
       .catch(err => {
         console.log(err);
       });
   }
 
-  async getGenres(link) {
+  async getResource(link) {
     return axios.get(link);
   }
 }
