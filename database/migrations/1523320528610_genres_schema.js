@@ -7,7 +7,7 @@ class GenresSchema extends Schema {
     this.create("genres", table => {
       table.increments();
       table.string("title").unique();
-      table.string("description");
+      table.integer("key").unique();
       table.timestamps();
     });
   }
