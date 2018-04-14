@@ -19,17 +19,22 @@ class ShowController {
   }
 
   async episodes(req) {
-    let id = req.params.id;
-    let episodesArray = req.params.episode;
-    episodesArray = episodesArray.split(/,/g);
+    let id = req.params.episode;
 
-    let episodes = await Episode.query()
+    let episodes = await Episode.all();
+    return episodes;
+  }
+
+  async episodesSingle(req) {
+    let id = req.params.episode;
+
+    let episode = await Episode.query()
       .where("id", "=", id)
       .fetch();
 
     return {
       id,
-      episodes
+      episode
     };
   }
 }

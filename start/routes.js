@@ -17,7 +17,8 @@ const Route = use("Route");
 
 Route.group(() => {
   Route.resource("shows", "ShowController");
-  Route.get("shows/:id/episodes/:episode", "ShowController.episodes");
+  Route.get("shows/:id/episodes/", "ShowController.episodes");
+  Route.get("shows/:id/episodes/:episode", "ShowController.episodesSingle");
 }).prefix("/api");
 
 Route.any("*", ({ view }) => view.render("welcome"));
