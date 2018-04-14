@@ -11,8 +11,9 @@ class ShowController {
 
   async show(req) {
     let id = req.params.id;
+
     let show = await Show.query()
-      .where("id", "=", id)
+      .whereIn("id", id)
       .fetch();
 
     return show;
@@ -30,6 +31,20 @@ class ShowController {
 
     let episode = await Episode.query()
       .where("id", "=", id)
+      .fetch();
+
+    return {
+      id,
+      episode
+    };
+  }
+
+  async episodesWhere(req) {
+    let id = req.params.episodes;
+    id = id.split(/,/g);
+
+    let episode = await Episode.query()
+      .whereIn("id", id)
       .fetch();
 
     return {
