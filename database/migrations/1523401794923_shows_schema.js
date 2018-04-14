@@ -13,6 +13,8 @@ class ShowsSchema extends Schema {
       table.string("endDate");
       table.string("ageRating");
       table.string("airedOn");
+      table.string("ratingRank");
+      table.string("poster");
       table.string("genres");
       table.timestamps();
     });

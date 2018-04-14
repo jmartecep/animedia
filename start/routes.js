@@ -15,6 +15,8 @@
 
 const Route = use("Route");
 
+Route.get("/seeder", "SeederController.seeder");
+
 Route.group(() => {
   Route.resource("shows", "ShowController");
   Route.get("shows/:id/episodes/", "ShowController.episodes");
