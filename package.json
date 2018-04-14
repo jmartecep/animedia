@@ -5,13 +5,11 @@
   "description": "The fullstack application boilerplate for Adonisjs",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "start":
+      "concurrently \"adonis serve --dev\" \"webpack -d --watch --progress\"",
     "test": "node ace test"
   },
-  "keywords": [
-    "adonisjs",
-    "adonis-app"
-  ],
+  "keywords": ["adonisjs", "adonis-app"],
   "author": "",
   "license": "UNLICENSED",
   "private": true,
@@ -26,9 +24,14 @@
     "@adonisjs/lucid": "^5.0.3",
     "@adonisjs/session": "^1.0.23",
     "@adonisjs/shield": "^1.0.6",
+    "concurrently": "^3.5.1",
+    "axios": "^0.18.0",
     "dotenv-expand": "^4.2.0",
+    "materialize-css": "^1.0.0-beta",
     "react": "^16.3.1",
-    "react-dom": "^16.3.1"
+    "react-dom": "^16.3.1",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2"
   },
   "devDependencies": {
     "autoprefixer": "^8.2.0",

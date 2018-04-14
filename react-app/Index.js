@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './src/styles.css'
-import Test from './components/Test'
+import App from './components/App'
 
-
-ReactDOM.render( <Test / > , document.getElementById('example'));
+ReactDOM.render(<App /> , document.getElementById('example'));
