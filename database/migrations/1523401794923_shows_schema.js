@@ -8,6 +8,12 @@ class ShowsSchema extends Schema {
       table.increments();
       table.string("title").unique();
       table.string("description");
+      table.string("averageRating");
+      table.string("startDate");
+      table.string("endDate");
+      table.string("ageRating");
+      table.string("airedOn");
+      table.string("genres");
       table.timestamps();
     });
   }
