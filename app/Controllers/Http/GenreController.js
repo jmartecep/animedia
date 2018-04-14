@@ -44,6 +44,7 @@ class GenreController {
           let singleShow = new Show();
           let singleAttr = show.attributes;
           singleShow.title = singleAttr.titles.en;
+          singleShow.description = singleAttr.synopsis;
           singleShow.averageRating = singleAttr.averageRating;
           singleShow.startDate = singleAttr.startDate;
           singleShow.endDate = singleAttr.endDate;
@@ -56,6 +57,7 @@ class GenreController {
               .then(async genreReponse => {
                 let genreData = await genreReponse.data.data;
                 genres = genreData;
+
                 return genres;
               })
               .catch(err => {
