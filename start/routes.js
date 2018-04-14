@@ -15,6 +15,9 @@
 
 const Route = use("Route");
 
-Route.get("/api/genres", "GenreController.index");
+Route.group(() => {
+  Route.resource("shows", "ShowController");
+  Route.get("shows/:id/episodes/:episode", "ShowController.episodes");
+}).prefix("/api");
 
 Route.any("*", ({ view }) => view.render("welcome"));
