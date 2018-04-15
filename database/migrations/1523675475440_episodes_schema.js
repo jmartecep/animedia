@@ -9,7 +9,7 @@ class EpisodesSchema extends Schema {
       table.string("title");
       table.string("seasonNumber");
       table.string("number");
-      table.string("synopsis");
+      table.text("synopsis");
       table.string("length");
       table.string("airDate");
       table.string("thumbnail");

@@ -16,6 +16,7 @@
 const Route = use("Route");
 
 Route.get("/seeder", "SeederController.seeder");
+Route.get("/seeder/genres", "SeederController.genreSeed");
 
 Route.group(() => {
   Route.resource("shows", "ShowController");

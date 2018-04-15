@@ -7,7 +7,7 @@ class ShowsSchema extends Schema {
     this.create("shows", table => {
       table.increments();
       table.string("title").unique();
-      table.string("description");
+      table.text("description");
       table.string("averageRating");
       table.string("startDate");
       table.string("endDate");
@@ -15,7 +15,9 @@ class ShowsSchema extends Schema {
       table.string("airedOn");
       table.string("ratingRank");
       table.string("poster");
+      table.string("coverImage");
       table.string("genres");
+      table.string("youtubeTrailerId");
       table.timestamps();
     });
   }
