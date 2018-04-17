@@ -18,7 +18,9 @@ class ScrollSpyBlock extends Component {
             </li>
           </ul>
           <li>Robot Geisha</li>
-          <li>Bady Larry</li>
+          <li>
+            <a href="#bad-larry">Bad LArry</a>
+          </li>
         </ul>
       </section>
     );

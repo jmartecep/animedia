@@ -21,5 +21,15 @@
   {{ script('src/main') }}
    <!-- Compiled and minified JavaScript -->
    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+   <script>
+      var elem = document.querySelectorAll('.scrollspy');
+      var instance = elem.forEach((e, i) => {
+        M.ScrollSpy.init(e, {
+          throttle: 300,
+          offset: 100 * (i * 1.25),
+          activeClass: 'hammer'
+        })
+      })
+    </script>
 </body>
 </html>
