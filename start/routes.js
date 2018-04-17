@@ -15,6 +15,17 @@
 
 const Route = use("Route");
 
-Route.get("/api/genres", "GenreController.index");
+Route.get("/seeder", "SeederController.seeder");
+Route.get("/seeder/genres", "SeederController.genreSeed");
+
+Route.group(() => {
+  Route.resource("shows", "ShowController");
+  Route.get("shows/:id/episodes/", "ShowController.episodes");
+  Route.get("shows/:id/episodes/:episode", "ShowController.episodesSingle");
+  Route.get(
+    "shows/:id/episodes/bulk/:episodes",
+    "ShowController.episodesWhere"
+  );
+}).prefix("/api");
 
 Route.any("*", ({ view }) => view.render("welcome"));

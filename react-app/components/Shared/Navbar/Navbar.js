@@ -4,8 +4,6 @@ import 'materialize-css/dist/css/materialize.min.css';
 import './navbar.css';
 
 
-
-
 class Navbar extends Component {
   render () {
     return (

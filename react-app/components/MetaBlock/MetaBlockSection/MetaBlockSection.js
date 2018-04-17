@@ -8,10 +8,10 @@ class MetaBlockSection extends Component {
   render() {
     let props = this.props;
     return (
-      <div>
+      <aside>
         <h5>{props.title}</h5>
         <ul className="collection">{this.props.children}</ul>
-      </div>
+      </aside>
     );
   }
 }

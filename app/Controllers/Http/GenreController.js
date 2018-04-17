@@ -1,17 +1,32 @@
 "use strict";
 const axios = require("axios");
+const Genre = use("App/Models/Genre");
 
 class GenreController {
   async index() {
-    return axios
-      .get("https://kitsu.io/api/edge/genres")
-      .then(async response => {
-        let data = await response.data;
-        return data;
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    let genres = Genre.all();
+    return genres;
+
+    // return axios
+    //   .get(
+    //     "http://localhost"
+    //   )
+    //   .then(async response => {
+    //     let data = await response.data.data;
+
+    //     data.forEach(async object => {
+    //       let genre = new Genre();
+    //       genre.title = object.attributes.name;
+    //       genre.key = object.id;
+
+    //       await genre.save();
+    //     });
+
+    //     return Genre.all().toJSON();
+    //   })
+    //   .catch(err => {
+    //     console.log(err);
+    //   });
   }
 }
 

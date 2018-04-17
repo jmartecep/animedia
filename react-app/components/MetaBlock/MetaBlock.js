@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import info from "./data.json";
 import MetaBlockSection from "./MetaBlockSection";
 
 class MetaBlock extends Component {
@@ -22,23 +21,6 @@ class MetaBlock extends Component {
   }
 
   render() {
-    let data = info[0].attributes;
-
-    let show = {
-      title: data.titles.en,
-      averageRating: data.averageRating,
-      startDate: data.startDate,
-      endData: data.endDate,
-      ageRating: data.ageRatingGuide,
-      airedOn: data.subtype
-    };
-
-    let episode = {
-      status: data.status,
-      episodeCount: data.episodeCount,
-      episodeLength: data.episodeLength,
-      suitableForWork: data.nsfw ? "Yes" : "No"
-    };
     return (
       <div>
         <MetaBlockSection title="Show Data">
