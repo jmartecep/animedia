@@ -2,28 +2,27 @@ import React, { Component } from "react";
 import MetaBlock from "../../MetaBlock";
 import ScrollSpyBlock from "../../ScrollSpyBlock";
 import "./Show.css";
-import info from "./data.json";
 
 class Show extends Component {
   constructor(props) {
     super(props);
-    let data = info[0].attributes;
+    // let data = info[0].attributes;
 
-    let show = {
-      title: data.titles.en,
-      averageRating: data.averageRating,
-      startDate: data.startDate,
-      endData: data.endDate,
-      ageRating: data.ageRatingGuide,
-      airedOn: data.subtype
-    };
+    // let show = {
+    //   title: data.titles.en,
+    //   averageRating: data.averageRating,
+    //   startDate: data.startDate,
+    //   endData: data.endDate,
+    //   ageRating: data.ageRatingGuide,
+    //   airedOn: data.subtype
+    // };
 
-    let episode = {
-      status: data.status,
-      episodeCount: data.episodeCount,
-      episodeLength: data.episodeLength,
-      suitableForWork: data.nsfw ? "Yes" : "No"
-    };
+    // let episode = {
+    //   status: data.status,
+    //   episodeCount: data.episodeCount,
+    //   episodeLength: data.episodeLength,
+    //   suitableForWork: data.nsfw ? "Yes" : "No"
+    // };
   }
 
   componentWillMount() {}
