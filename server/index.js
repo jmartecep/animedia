@@ -12,21 +12,13 @@ app
   .then(() => {
     const server = express();
 
-    server.get("/artist/:id", (req, res) => {
-      const actualPage = "/post";
-      const queryParams = { id: req.params.id };
-      app.render(req, res, actualPage, queryParams);
-    });
-
-    const controller = require("./controller");
-
     server.use("/api", require("./routes/shows"));
 
     server.get("*", (req, res) => {
       return handle(req, res);
     });
 
-    models.sequelize.sync().then(function() {
+    models.sequelize.sync().then(function () {
       server.listen(3000, err => {
         if (err) throw err;
         console.log("> Ready on http://localhost:3000");
