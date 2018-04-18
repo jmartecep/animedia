@@ -3,6 +3,7 @@ import Layout from "../components/MyLayout.js";
 import MetaBlock from "../components/MetaBlock";
 import ScrollSpyBlock from "../components/ScrollSpyBlock";
 import info from "../components/MetaBlock/data.json";
+import YoutubeVideo from '../components/YoutubeVideo'
 import Link from 'next/link'
 
 const Shows = props => (
@@ -14,10 +15,11 @@ const Shows = props => (
           <ScrollSpyBlock />
         </div>
         <div className="col m6">
-
+          {props.description}
         </div>
         <div className="col m4">
           <MetaBlock title={props.title} show={props.show} />
+          {/* <YoutubeVideo allowFullScreen width="100%" height="200" youtubeTrailerId={props.youtubeTrailerId} /> */}
         </div>
       </div>
     </Layout>
@@ -35,20 +37,22 @@ Shows.getInitialProps = async function (props) {
     averageRating: data.averageRating,
     startDate: data.startDate,
     endData: data.endDate,
-    ageRating: data.ageRatingGuide,
-    airedOn: data.subtype,
+    ageRating: data.ageRating,
+    airedOn: data.airedOn,
     ratingRank: data.ratingRank,
     airedOn: data.airedOn
   };
 
   let youtubeTrailerId = data.youtubeTrailerId
+  let description = data.description
 
   return {
     shows: fetched,
     show: show,
     id: props.query.id,
     title: show.title + " Info",
-    youtubeTrailerId
+    youtubeTrailerId,
+    description
   };
 };
 
