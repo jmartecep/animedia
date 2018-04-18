@@ -1,16 +1,27 @@
-import Header from './Header'
+import Header from "./Header";
+import Navbar from "./Navbar";
+import Head from "next/head";
 
-const layoutStyle = {
-  margin: 20,
-  padding: 20,
-  border: '1px solid #DDD'
-}
-
-const Layout = (props) => (
-  <div style={layoutStyle}>
+const Layout = props => (
+  <div>
+    <Head>
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css"
+      />
+      <link
+        href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet"
+      />
+      <link
+        href="https://fonts.googleapis.com/css?family=Monoton"
+        rel="stylesheet"
+      />
+    </Head>
+    <Navbar />
     <Header />
     {props.children}
   </div>
-)
+);
 
-export default Layout
+export default Layout;

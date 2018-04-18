@@ -4,16 +4,39 @@ import fetch from "isomorphic-unfetch";
 
 const Index = props => (
   <Layout>
-    <h1>Batman TV Shows</h1>
-    <ul>
-      {props.shows.map(({ show }) => (
-        <li key={show.id}>
-          <Link as={`/shows`} href={`/shows`}>
-            <a>show.name</a>
-          </Link>
-        </li>
-      ))}
-    </ul>
+    <div className="container">
+      <div className="row">
+        <div className="col s12">
+          <div className="col s4 img-holder">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJND5svw8tcRlb4vpzlORhAqCJhPsKmyVXoV0_fvtwtfBLzim7" />
+          </div>
+          <div className="col s4 img-holder">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJND5svw8tcRlb4vpzlORhAqCJhPsKmyVXoV0_fvtwtfBLzim7" />
+          </div>
+          <div className="col s4 img-holder">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJND5svw8tcRlb4vpzlORhAqCJhPsKmyVXoV0_fvtwtfBLzim7" />
+          </div>
+        </div>
+      </div>{" "}
+      {/*End Row*/}
+      <div className="row">
+        <div className="col s12">
+          <h1 className="textAlign">Insert Scrollspy Here!</h1>
+        </div>
+      </div>
+    </div>
+    <style jsx>
+      {`
+        img {
+          margin-top: 25px;
+          border-radius: 50%;
+        }
+
+        .textAlign {
+          text-align: center;
+        }
+      `}
+    </style>
   </Layout>
 );
 
