@@ -21,6 +21,10 @@ const Layout = props => (
     <Navbar />
     {props.children}
     <style jsx global>{`
+      body {
+        overflow-x: hidden;
+        box-sizing: border-box;
+      }
       h1 {
         font-size: 1.875rem;
       }

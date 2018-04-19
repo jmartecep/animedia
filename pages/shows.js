@@ -41,7 +41,7 @@ const Shows = props => (
           top: -40px;
           background-blend-mode: hard-light;
           color: white;
-          z-index: 30;
+          z-index: 50;
         }
         .flow-text {
           font-size: 1.15rem;
