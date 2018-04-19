@@ -9,7 +9,7 @@ class ScrollSpyBlock extends Component {
     return (
       <section>
         <ul>
-          <li>
+          <li>{/* need to make dynamic */}
             <a href="#dinosaurgoliath">Dinosaur Goliath</a>
           </li>
           <ul>

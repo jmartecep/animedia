@@ -7,7 +7,7 @@ class YoutubeVideo extends Component {
   }
 
   render() {
-    const { youtubeTrailerId, ...attributes } = this.props
+    const { youtubeTrailerId, ...attributes } = this.props //destructure
     return (
       <iframe {...attributes}
         src={`https://www.youtube.com/embed/${youtubeTrailerId}`}>
