@@ -9,26 +9,53 @@ import Episodes from '../components/Episode'
 const Shows = props => (
   <Link as={`/api/shows/${props.id}`} href={`/shows?id=${props.id}`}>
     <Layout>
+      <img className="coverimage responsive-img" src={props.coverImage} />
       <div className="row">
-        <h1>{props.show.title}</h1>
+        <h1 className="title">{props.show.title}</h1>
         <div className="col m2">
-          <ScrollSpyBlock />
+          <div id="side">
+            <ScrollSpyBlock title={props.show.title} episodes={props.episodes} />
+          </div>
         </div>
         <div className="col m6">
           <p className="flow-text">{props.description}</p>
           <hr />
-          <h2>{props.show.title} Episode Guide</h2>
-          <Episodes title={props.show.title} episodes={props.episodes} />
+          <Episodes id="episode-guide" title={props.show.title} episodes={props.episodes} />
         </div>
         <div className="col m4">
           <MetaBlock title={props.title} show={props.show} />
-          <YoutubeVideo allowFullScreen width="100%" height="350" youtubeTrailerId={props.youtubeTrailerId} />
+          {/* <YoutubeVideo allowFullScreen width="100%" height="350" youtubeTrailerId={props.youtubeTrailerId} /> */}
         </div>
       </div>
       <style jsx>{`
-    .flow-text {
-      font-size: 1.15rem;
-    }
+        .title {
+          text-align: center;
+          font-size: 4rem;
+          margin: 0;
+          padding: 0;
+          position: relative;
+          left: -6vw;
+          background-image: linear-gradient(rgba(0,0,0,0.7) 50%, red 75% , black 100%);
+          border-radius: 5% 5% 0 0;
+          width: 106vw;
+          top: -40px;
+          background-blend-mode: hard-light;
+          color: white;
+          z-index: 30;
+        }
+        .flow-text {
+          font-size: 1.15rem;
+        }
+        .coverimage {
+          max-height: 40vh;
+          width: 100vw;
+          object-fit: cover;
+          object-position: center;
+          margin: auto;
+          position: absolute;
+          top: 0;
+          z-index:0;
+        }
     `}</style>
     </Layout>
   </Link>
@@ -60,6 +87,7 @@ Shows.getInitialProps = async function (props) {
 
   let youtubeTrailerId = data.youtubeTrailerId
   let description = data.description
+  let coverImage = data.coverImage
 
   return {
     shows: fetched,
@@ -68,7 +96,8 @@ Shows.getInitialProps = async function (props) {
     title: show.title + " Info",
     youtubeTrailerId,
     description,
-    episodes
+    episodes,
+    coverImage
   };
 };
 

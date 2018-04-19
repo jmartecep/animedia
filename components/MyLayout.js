@@ -19,7 +19,6 @@ const Layout = props => (
       />
     </Head>
     <Navbar />
-    <Header />
     {props.children}
     <style jsx global>{`
       h1 {

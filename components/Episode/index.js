@@ -10,7 +10,7 @@ class Episoide extends Component {
     let episodes = this.props.episodes;
 
     return (
-      <div>
+      <section id={this.props.id}>
         {episodes.map((e, v) => (
           <article className="row section valign-wrapper" id={v + "-episode"} key={v + "-article"}>
             <div className="col m8">
@@ -24,7 +24,7 @@ class Episoide extends Component {
             </div>
           </article>
         ))}
-      </div>
+      </section>
     );
   }
 }

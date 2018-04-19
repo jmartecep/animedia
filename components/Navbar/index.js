@@ -5,7 +5,7 @@ class Navbar extends Component {
     return (
       <div>
         <nav>
-          <div className="nav-wrapper">
+          <div className="nav-wrapper valign-wrapper">
             <a href="#!" className="brand-logo center">
               <i className="material-icons" />Animedia
             </a>
@@ -32,6 +32,7 @@ class Navbar extends Component {
             background-position: center;
             height: 40vh;
             background-image: url("https://images.alphacoders.com/606/thumb-1920-606210.jpg");
+            z-index: 10;
           }
           nav:before {
             content: "";
@@ -39,6 +40,7 @@ class Navbar extends Component {
             width: 100%;
             height: 40vh;
             background: rgba(0, 0, 0, 0.5) !important;
+            z-index: 20;
           }
 
           .brand-logo {
@@ -48,8 +50,10 @@ class Navbar extends Component {
             font-family: "Monoton", cursive;
             text-shadow: 10px 10px rgb(94, 61, 43);
             font-family: "Monoton", cursive;
-
+            position: relative;
+            z-index: 25;
             font-size: 25vh !important;
+            top: 25%;
           }
 
           /* When the input field gets focus, change its width to 100% */
