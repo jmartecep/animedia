@@ -10,20 +10,27 @@ import Episodes from '../components/Episode'
 const Shows = props => (
   <Link as={`/api/shows/${props.id}`} href={`/shows?id=${props.id}`}>
     <Layout>
-      <div className="container row">
-        <p>Show page</p>
+      <div className="row">
+        <h1>{props.show.title}</h1>
         <div className="col m2">
           <ScrollSpyBlock />
         </div>
         <div className="col m6">
-          {props.description}
-          <Episodes episodes={props.episodes} />
+          <p className="flow-text">{props.description}</p>
+          <hr />
+          <h2>{props.show.title} Episode Guide</h2>
+          <Episodes title={props.show.title} episodes={props.episodes} />
         </div>
         <div className="col m4">
           <MetaBlock title={props.title} show={props.show} />
-          <YoutubeVideo allowFullScreen width="100%" height="200" youtubeTrailerId={props.youtubeTrailerId} />
+          {/* <YoutubeVideo allowFullScreen width="100%" height="350" youtubeTrailerId={props.youtubeTrailerId} /> */}
         </div>
       </div>
+      <style jsx>{`
+    .flow-text {
+      font-size: 1.15rem;
+    }
+    `}</style>
     </Layout>
   </Link>
 );
