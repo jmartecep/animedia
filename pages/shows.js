@@ -5,6 +5,7 @@ import ScrollSpyBlock from "../components/ScrollSpyBlock";
 import info from "../components/MetaBlock/data.json";
 import YoutubeVideo from '../components/YoutubeVideo'
 import Link from 'next/link'
+import Episodes from '../components/Episode'
 
 const Shows = props => (
   <Link as={`/api/shows/${props.id}`} href={`/shows?id=${props.id}`}>
@@ -16,6 +17,7 @@ const Shows = props => (
         </div>
         <div className="col m6">
           {props.description}
+          <Episodes episodes={props.episodes} />
         </div>
         <div className="col m4">
           <MetaBlock title={props.title} show={props.show} />
@@ -29,6 +31,9 @@ const Shows = props => (
 Shows.getInitialProps = async function (props) {
   const res = await fetch("http://localhost:3000/api/shows/" + props.query.id);
   const fetched = await res.json();
+
+  const epi = await fetch(`http://localhost:3000/api/shows/${props.query.id}/episodes`);
+  const epiFetched = await epi.json();
 
   let data = fetched[0];
 
@@ -52,7 +57,8 @@ Shows.getInitialProps = async function (props) {
     id: props.query.id,
     title: show.title + " Info",
     youtubeTrailerId,
-    description
+    description,
+    episodes: epiFetched
   };
 };
 

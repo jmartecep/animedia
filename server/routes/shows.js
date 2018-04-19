@@ -19,15 +19,14 @@ router.get('/shows/:id', (req, res) => {
   })
 })
 
-router.get("/album/:id", (req, res) => {
-  request
-    .get("https://api.spotify.com/v1/albums/" + req.params.id)
-    .end((err, response) => {
-      if (err) {
-        return res.status(500).json(err);
-      }
-      res.status(200).json(response.body);
-    });
+router.get("/shows/:id/episodes", (req, res) => {
+  models.Episode.findAll({
+    where: {
+      showId: req.params.id
+    }
+  }).then(results => {
+    res.status(200).json(results)
+  })
 });
 
 module.exports = router;
