@@ -2,7 +2,6 @@ import fetch from "isomorphic-unfetch";
 import Layout from "../components/MyLayout.js";
 import MetaBlock from "../components/MetaBlock";
 import ScrollSpyBlock from "../components/ScrollSpyBlock";
-import info from "../components/MetaBlock/data.json";
 import YoutubeVideo from '../components/YoutubeVideo'
 import Link from 'next/link'
 import Episodes from '../components/Episode'
