@@ -21,7 +21,7 @@ const Index = props => (
       {/*End Row*/}
       <div className="row">
         <div className="col s12">
-          <h1 className="textAlign">Insert Scrollspy Here!</h1>
+          <h1 className="textAlign">All Your Favorite Anime!</h1>
         </div>
       </div>
     </div>

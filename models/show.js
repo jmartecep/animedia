@@ -1,7 +1,7 @@
 "use strict";
 module.exports = (sequelize, DataTypes) => {
   var Show = sequelize.define(
-    "Show",
+    "Show", //from schema
     {
       title: DataTypes.STRING,
       description: DataTypes.TEXT,
@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       underscored: true
     }
   );
-  Show.associate = function(models) {
+  Show.associate = function (models) {
     // associations can be defined here
   };
   return Show;

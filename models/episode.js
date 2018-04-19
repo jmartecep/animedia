@@ -1,7 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var Episode = sequelize.define('Episode', {
-    title: DataTypes.STRING,
+    title: DataTypes.STRING, //from model schema
     showId: DataTypes.INTEGER,
     seasonNumber: DataTypes.INTEGER,
     number: DataTypes.INTEGER,

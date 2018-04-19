@@ -1,9 +1,9 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var Genre = sequelize.define('Genre', {
-    title: DataTypes.STRING
+    title: DataTypes.STRING //from schema
   }, {});
-  Genre.associate = function(models) {
+  Genre.associate = function (models) {
     // associations can be defined here
   };
   return Genre;
