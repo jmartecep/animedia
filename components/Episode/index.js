@@ -7,15 +7,16 @@ class Episoide extends Component {
   }
 
   render() {
-    let [episodes] = this.props.episodes;
-    console.log(episodes)
+    let episodes = this.props.episodes;
 
     return (
       <div>
-        {Object.keys(episodes).map((episodeProperty, value) => (
-          <article className="collection-item" key={value}>
-            {episodeProperty}:{episodes[episodeProperty]}
-          </article>
+        {episodes.map(e => (
+          <div>
+            <h3>{e.title}</h3>
+            <hr />
+            <p>{e.synopsis}</p>
+          </div>
         ))}
       </div>
     );

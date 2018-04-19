@@ -21,7 +21,7 @@ const Shows = props => (
         </div>
         <div className="col m4">
           <MetaBlock title={props.title} show={props.show} />
-          {/* <YoutubeVideo allowFullScreen width="100%" height="200" youtubeTrailerId={props.youtubeTrailerId} /> */}
+          <YoutubeVideo allowFullScreen width="100%" height="200" youtubeTrailerId={props.youtubeTrailerId} />
         </div>
       </div>
     </Layout>
@@ -33,7 +33,7 @@ Shows.getInitialProps = async function (props) {
   const fetched = await res.json();
 
   const epi = await fetch(`http://localhost:3000/api/shows/${props.query.id}/episodes`);
-  const epiFetched = await epi.json();
+  let epiFetched = await epi.json();
 
   let data = fetched[0];
 
@@ -48,6 +48,10 @@ Shows.getInitialProps = async function (props) {
     airedOn: data.airedOn
   };
 
+  let episodes = epiFetched.map(element => {
+    return element
+  });
+
   let youtubeTrailerId = data.youtubeTrailerId
   let description = data.description
 
@@ -58,7 +62,7 @@ Shows.getInitialProps = async function (props) {
     title: show.title + " Info",
     youtubeTrailerId,
     description,
-    episodes: epiFetched
+    episodes
   };
 };
 
