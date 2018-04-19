@@ -4,7 +4,7 @@ nav {
   height: 40vh;
   background-image: url("https://images.alphacoders.com/606/thumb-1920-606210.jpg");
 }
-nav.sugabums:before {
+nav:before {
   content: "";
   position: absolute !important;
   width: 100%;
