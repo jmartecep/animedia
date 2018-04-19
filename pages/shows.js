@@ -24,7 +24,7 @@ const Shows = props => (
         </div>
         <div className="col m4">
           <MetaBlock title={props.title} show={props.show} />
-          {/* <YoutubeVideo allowFullScreen width="100%" height="350" youtubeTrailerId={props.youtubeTrailerId} /> */}
+          <YoutubeVideo allowFullScreen width="100%" height="350" youtubeTrailerId={props.youtubeTrailerId} />
         </div>
       </div>
       <style jsx>{`

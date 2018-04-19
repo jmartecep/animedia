@@ -4,51 +4,70 @@ import fetch from "isomorphic-unfetch";
 
 const Index = props => (
   <Layout>
-    <div className="container">
+    <div>
       <div className="row">
-        <div className="col s12">
-          <div className="col s4 img-holder">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJND5svw8tcRlb4vpzlORhAqCJhPsKmyVXoV0_fvtwtfBLzim7" />
-          </div>
-          <div className="col s4 img-holder">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJND5svw8tcRlb4vpzlORhAqCJhPsKmyVXoV0_fvtwtfBLzim7" />
-          </div>
-          <div className="col s4 img-holder">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJND5svw8tcRlb4vpzlORhAqCJhPsKmyVXoV0_fvtwtfBLzim7" />
-          </div>
-        </div>
-      </div>{" "}
-      {/*End Row*/}
-      <div className="row">
-        <div className="col s12">
+        <div className="col s12 ">
           <h1 className="textAlign">All Your Favorite Anime!</h1>
+          {props.shows.map((show, v) => (
+            <Link key={v + "-Link"} href={`/shows?id=${show.id}`}>
+              <section key={v + "-" + show.ratingRank} className="card col m3">
+                <header className="center-align card-heading" key={v + "--" + show.ratingRank}>
+                  <h6 key={v + "---" + show.ratingRank}>{show.title}</h6>
+                  <p key={v + "--p"} className="flow-text">Rating Rank: {show.ratingRank}</p>
+                </header>
+                <figure key={v + "----" + show.ratingRank}>
+                  <img key={v + "-----" + show.ratingRank} src={show.poster} />
+                </figure>
+              </section>
+            </Link>
+          ))}
         </div>
       </div>
     </div>
     <style jsx>
       {`
         img {
-          margin-top: 25px;
-          border-radius: 50%;
+          object-fit: cover;
+          object-position: top center;
+          max-height: 200px; 
+          padding: 10px; 
+          width: 100%;
         }
 
         .textAlign {
           text-align: center;
+        }
+        .card {
+          cursor: pointer;
+          min-height: 350px;
         }
       `}
     </style>
   </Layout>
 );
 
-// Index.getInitialProps = async function() {
-//   const res = await fetch("https://api.tvmaze.com/search/shows?q=batman");
-//   const data = await res.json();
+Index.getInitialProps = async function (props) {
+  const res = await fetch("http://localhost:3000/api/shows/");
+  const fetched = await res.json();
 
-//   console.log(`Show data fetched. Count: ${data.length}`);
+  let shows = fetched.map(data => {
+    return {
+      id: data.id,
+      title: data.title,
+      averageRating: data.averageRating,
+      startDate: data.startDate,
+      endData: data.endDate,
+      ageRating: data.ageRating,
+      airedOn: data.airedOn,
+      ratingRank: data.ratingRank,
+      airedOn: data.airedOn,
+      poster: data.poster
+    }
+  });
 
-//   return {
-//     shows: data
-//   };
-// };
+  return {
+    shows
+  };
+};
 
 export default Index;

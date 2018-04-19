@@ -6,7 +6,7 @@ class Navbar extends Component {
       <div>
         <nav>
           <div className="nav-wrapper valign-wrapper">
-            <a href="#!" className="brand-logo center">
+            <a href="/" className="brand-logo center">
               <i className="material-icons" />Animedia
             </a>
 
@@ -28,11 +28,11 @@ class Navbar extends Component {
         </nav>
         <style jsx>{`
           nav {
-            /*background-color:black;*/
             background-position: center;
             height: 40vh;
             background-image: url("https://images.alphacoders.com/606/thumb-1920-606210.jpg");
             z-index: 10;
+            overflow: hidden;
           }
           nav:before {
             content: "";
@@ -49,10 +49,9 @@ class Navbar extends Component {
             color: rgb(255, 255, 255) !important;
             font-family: "Monoton", cursive;
             text-shadow: 10px 10px rgb(94, 61, 43);
-            font-family: "Monoton", cursive;
             position: relative;
             z-index: 25;
-            font-size: 25vh !important;
+            font-size: 12.5rem !important;
             top: 25%;
           }
 
