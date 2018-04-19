@@ -1,7 +1,7 @@
 import Header from "./Header";
 import Navbar from "./Navbar";
 import Head from "next/head";
-
+// head provider from nextjs
 const Layout = props => (
   <div>
     <Head>

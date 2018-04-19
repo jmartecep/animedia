@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import "materialize-css/dist/css/materialize.min.css";
 import Home from "./Pages/Home";
 import Show from "./Pages/Show";
 // import Footer from "./Shared/Footer";
