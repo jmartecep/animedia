@@ -1,8 +1,2 @@
-<<<<<<< HEAD
-.next
-node_modules
-*.log
-=======
 node_modules/
 .env
->>>>>>> e53b0020496fa2f9635b118e69a66cb586a645c2
