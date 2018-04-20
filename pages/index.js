@@ -50,7 +50,11 @@ const Index = props => (
 );
 
 Index.getInitialProps = async function (props) {
-  const res = await fetch("http://localhost:3000/api/shows/");
+  const res = await fetch("http://localhost:3000/api/shows/", {
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  });
   const fetched = await res.json();
 
   let shows = fetched.map(data => {
