@@ -62,7 +62,11 @@ const Shows = props => (
 );
 
 Shows.getInitialProps = async function (props) {
-  const res = await fetch("http://localhost:3000/api/shows/" + props.query.id);
+  if (!window.location.origin) {
+    window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
+  }
+
+  const res = await fetch(window.location.origin + props.query.id);
   const fetched = await res.json();
 
   const epi = await fetch(`http://localhost:3000/api/shows/${props.query.id}/episodes`);

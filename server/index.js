@@ -22,7 +22,7 @@ app
     models.sequelize.sync().then(function () {
       server.listen(PORT, err => {
         if (err) throw err;
-        console.log("> Ready on http://localhost");
+        console.log(`> Ready on ${PORT}`);
       });
     });
   })
